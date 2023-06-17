@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_all.c                                   :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/17 10:35:39 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/17 10:37:03 by hakobaya         ###   ########.fr       */
+/*   Created: 2023/06/17 07:05:28 by hakobaya          #+#    #+#             */
+/*   Updated: 2023/06/17 19:53:40 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-void	ft_putchar(const char c)
-{
-	write(1, &c, 1);
-}
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-void	ft_putchar_all(const char *fmt, ...)
-{
-	if (*fmt == '\'' || *fmt == '\"')
-	{
-		fmt++;
-		if (*fmt == 'c')
-			ft_putchar();
-		if (*fmt == '%')
-			write(1, '%', 1);
-		return ;
-	}
-	else
-		return ;
-}
+int		ft_printf(const char *fmt, ...);
+int		ft_putchar(int c);
+int		ft_putstr(const char *str);
+int		ft_putnbr_base(unsigned long nbr, char *base);
+int		ft_putnbr(int nbr);
+int		ft_putpointer(unsigned long address, char *base);
+
+#endif

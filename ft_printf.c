@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 07:04:39 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/17 10:40:44 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:12:46 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,38 +24,60 @@
 //• %% Prints a percent sign.
 
 //引数の部分最後戻す
+
+static int	ft_printf_type(const char *fmt, int digit, va_list args)
+{
+	char	*base;
+	char	*base_upper;
+
+	base = "0123456789abcdef";
+	base_upper = "0123456789ABCDEF";
+	if (*fmt == 's')
+		digit = ft_putstr(va_arg(args, const char *));
+	else if (*fmt == 'c')
+		digit = ft_putchar(va_arg(args, int));
+	else if (*fmt == '%')
+		digit = ft_putchar(va_arg(args, int));
+	else if (*fmt == 'd' || *fmt == 'i')
+		digit = ft_putnbr(va_arg(args, int));
+	else if (*fmt == 'u')
+		digit = ft_putnbr(va_arg(args, unsigned long));
+	else if (*fmt == 'p')
+		digit = ft_putpointer(va_arg(args, unsigned long), base);
+	else if (*fmt == 'x')
+		digit = ft_putnbr_base(va_arg(args, unsigned long), base);
+	else if (*fmt == 'X')
+		digit = ft_putnbr_base(va_arg(args, unsigned long), base_upper);
+	else
+		return (-1);
+	return (digit);
+}
+
 int	ft_printf(const char *fmt, ...)
 {
-	int		d;
+	int		digit;
 	va_list	args;
-	va_list	args2;
-	char	c;
-	char	*s;
 
 	va_start(args, fmt);
-	va_copy(args2, args);
-	while (*fmt++)
+	digit = 0;
+	while (*fmt)
 	{
 		if (*fmt == '%')
 		{
 			fmt++;
-			if (*fmt == 's')
-				ft_putstr_all(fmt, va_arg(args, const char *));
-			if (*fmt == 'c' || *fmt == '%')
-				ft_putchar_all(fmt, va_arg(args, char));
-			else if (*fmt == 'd' || *fmt == 'i' || *fmt == 'u' || *fmt == 'x' || *fmt == 'X')
-				ft_putnbr_all(fmt, va_arg(args, int));
-			else if (*fmt == 'p')
-				ft_putpointer();
-			else
-				break ;
+			digit += ft_printf_type(fmt, digit, args);
+			fmt++;
 		}
+		write(1, fmt, 1);
+		fmt++;
+		digit++;
 	}
+	digit += ft_putchar('\n');
 	va_end(args);
-	return (0); //returnで何返すか調べる
+	return (digit);
 }
 
-//void	foo(char *fmt, ...)
+//void	foo(chqar *fmt, ...)
 //{
 //	int	d;
 
@@ -86,16 +108,26 @@ int	ft_printf(const char *fmt, ...)
 //		... va_end(2);
 //}
 
-#include <stdio.h>
+//#include <stdio.h>
 
-int	main(void)
-{
-	const char	*str = "Hello World";
-	printf("%s\n", "Hello World");
-	printf("%x\n", "agj"); // error??
-	printf("%x\n", -12345);
-	printf("%X\n", 12345);
-	printf("%X\n", -12345);
-	//ft_printf(str);
-	return (0);
-}
+//int	main(void)
+//{
+//	const char	*str;
+
+//	str = "Hello World";
+//	printf("printf string %s\n", "Hello World");
+//	ft_printf("ft_printf string %s\n", "Hello World");
+//	printf("printf char %c\n", '#');
+//	ft_printf("ft_printf_char %c\n", '#');
+//	printf("printf d %d\n", -123456789);
+//	ft_printf("ft_printf d %d\n", -123456789);
+//	printf("printf i %i\n", 1234523456);
+//	ft_printf("ft_printf i %i\n", 1234523456);
+//	printf("printf u %u\n", 987654321);
+//	ft_printf("ft_printf u %u\n", 987654321);
+//	printf("printf x %x\n", 2345);
+//	ft_printf("ft_printf x %x\n", 2345);
+//	printf("printf X %X\n", 1234);
+//	ft_printf("ft_printf X %X\n", 1234);
+//	return (0);
+//}

@@ -6,54 +6,53 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 10:07:20 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/17 10:22:32 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/06/17 20:13:38 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbr_base_2(long num, int size, char *base)
+static int	ft_putnbr_base_2(unsigned long nbr, int size, char *base)
 {
-	long	nbr_final[50];
-	int		i;
+	int	digit;
 
-	i = 0;
-	if (num != 0)
+	digit = 1;
+	if (nbr > (unsigned long)size)
 	{
-		while (num)
-		{
-			nbr_final[i] = num % size;
-			num = num / size;
-			i++;
-		}
-		while (--i >= 0)
-			ft_putchar(base[nbr_final[i]]);
+		ft_putnbr_base_2(nbr / size, size, base);
+		nbr = nbr % size;
+		digit++;
 	}
-	else
-		ft_putchar(base[0]);
+	ft_putchar(base[nbr]);
+	return (digit);
 }
 
-void	ft_putnbr_base(int nbr)
+int	ft_putnbr_base(unsigned long nbr, char *base)
 {
-	char	*base;
-	int		size;
-	int		i;
-	long	num;
+	int	size;
+	int	digit;
 
-	i = 0;
-	base = (char *)malloc(sizeof(char) * 17);
-	while (i < 17)
+	digit = 0;
+	if (nbr == 0)
 	{
-		base[i] = i - '0';
-		i++;
+		ft_putnbr(0);
+		ft_putchar('\n');
+		return (1);
 	}
-	base[i] = '\0';
 	size = 16;
-	num = nbr;
-	if (num < 0)
-	{
-		num = num * (-1);
-		ft_putchar('-');
-	}
-	ft_putnbr_base_2(num, size, base);
+	digit = ft_putnbr_base_2(nbr, size, base);
+	ft_putchar('\n');
+	return (digit);
 }
+
+//#include <stdio.h>
+
+//int	main(void)
+//{
+//	char	*base = "0123456789abcdef";
+//	char	*base_upper = "0123456789ABCDEF";
+
+//	ft_putnbr(123456);
+//	printf("%x\n", 31234567);
+//	ft_putnbr_base(31234567, base);
+//}
