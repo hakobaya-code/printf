@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_di.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/17 18:05:13 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/25 06:57:57 by hakobaya         ###   ########.fr       */
+/*   Created: 2023/06/24 19:33:44 by hakobaya          #+#    #+#             */
+/*   Updated: 2023/06/25 06:58:07 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(int c, int *len)
+void	ft_putnbr_di(int nbr, int *len)
 {
-	write(1, &c, 1);
-	*len = *len + 1;
+	long	num;
+	int		rem;
+
+	num = (long)nbr;
+	if (num < 0)
+	{
+		ft_putchar('-', len);
+		num *= -1;
+	}
+	rem = num % 10;
+	if (num / 10 != 0)
+		ft_putnbr(num / 10, len);
+	rem = rem + '0';
+	ft_putchar(rem, len);
 }

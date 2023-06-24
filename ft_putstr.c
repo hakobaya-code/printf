@@ -6,22 +6,31 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 18:03:29 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/17 18:53:09 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/06/25 07:50:25 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putstr(const char *str)
+void	ft_putstr(const char *str, int *len)
 {
-	int	digit;
+	const char	*nl;
 
-	digit = 0;
-	while (*str != '\0')
+	nl = "(null)";
+	if (str == NULL)
 	{
-		write(1, str, 1);
-		str++;
-		digit++;
+		while (*nl)
+		{
+			ft_putchar(*nl, len);
+			nl++;
+		}
 	}
-	return (digit);
+	else
+	{
+		while (*str)
+		{
+			ft_putchar(*str, len);
+			str++;
+		}
+	}
 }

@@ -6,43 +6,33 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 10:07:20 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/17 20:13:38 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/06/25 07:46:32 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static int	ft_putnbr_base_2(unsigned long nbr, int size, char *base)
+static void	ft_putnbr_base_2(unsigned int nbr, char *base, int *len)
 {
-	int	digit;
+	unsigned int	size;
 
-	digit = 1;
-	if (nbr > (unsigned long)size)
+	size = 16;
+	if (nbr / size != 0)
 	{
-		ft_putnbr_base_2(nbr / size, size, base);
+		ft_putnbr_base_2(nbr / size, base, len);
 		nbr = nbr % size;
-		digit++;
 	}
-	ft_putchar(base[nbr]);
-	return (digit);
+	ft_putchar(base[nbr], len);
 }
 
-int	ft_putnbr_base(unsigned long nbr, char *base)
+void	ft_putnbr_base(unsigned int nbr, char *base, int *len)
 {
-	int	size;
-	int	digit;
-
-	digit = 0;
 	if (nbr == 0)
 	{
-		ft_putnbr(0);
-		ft_putchar('\n');
-		return (1);
+		ft_putchar('0', len);
 	}
-	size = 16;
-	digit = ft_putnbr_base_2(nbr, size, base);
-	ft_putchar('\n');
-	return (digit);
+	else
+		ft_putnbr_base_2(nbr, base, len);
 }
 
 //#include <stdio.h>
