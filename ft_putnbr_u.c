@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 20:08:12 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/25 06:58:11 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:04:55 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putnbr_u(unsigned int nbr, int *len)
 		nbr = UINT_MAX;
 	rem = nbr % 10;
 	if (nbr / 10 != 0)
-		ft_putnbr(nbr / 10, len);
+		ft_putnbr_u(nbr / 10, len);
 	rem = rem + '0';
 	ft_putchar(rem, len);
 }

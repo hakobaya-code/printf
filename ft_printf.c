@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 07:04:39 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/25 07:50:38 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/06/25 14:05:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,83 +96,83 @@ int	ft_printf(const char *fmt, ...)
 //		... va_end(2);
 //}
 
-//#include <stdio.h>
+#include <stdio.h>
 
-//int	main(void)
-//{
-//	//const char	*str;
-//	int			count1;
-//	int			count2;
+int	main(void)
+{
+	//const char	*str;
+	int			count1;
+	int			count2;
 
-//	//str = "Hello World";
-//	printf("-------------------------------------------\n\n\n");
-//	count1 = printf("printf1 %s\n", "Hello World");
-//	count2 = ft_printf("printf2 %s\n", "Hello World");
-//	printf("count1 %d count2 %d\n", count1, count2);
-//	printf("-------------------------------------------\n\n\n");
-//	count1 = printf("printf1 %s\n", NULL);
-//	count2 = ft_printf("printf2 %s\n", NULL);
-//	printf("count1 %d count2 %d\n", count1, count2);
-//	printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 %c\n", '#');
-//	//count2 = ft_printf("printf2 %c\n", '#');
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 d %d\n", -123456789);
-//	//count2 = ft_printf("printf2 d %d\n", -123456789);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 i %i\n", 1234523456);
-//	//count2 = ft_printf("printf2 i %i\n", 1234523456);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 u %u\n", 987654321);
-//	//count2 = ft_printf("printf2 u %u\n", 987654321);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 x %x\n", 2345);
-//	//count2 = ft_printf("printf2 x %x\n", 2345);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 X %X\n", 1234);
-//	//count2 = ft_printf("printf2 X %X\n", 1234);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 pct %%%%%%\n");
-//	//count2 = ft_printf("printf2 pct %%%%%%\n");
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 u %u\n", INT_MAX);
-//	//count2 = ft_printf("printf2 u %u\n", INT_MAX);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 x %x\n", LONG_MAX);
-//	//count2 = ft_printf("printf2 x %x\n", LONG_MAX);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 x %x\n", LONG_MIN);
-//	//count2 = ft_printf("printf2 x %x\n", LONG_MIN);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 x %x\n", INT_MAX);
-//	//count2 = ft_printf("printf2 x %x\n", INT_MAX);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 x %x\n", -1);
-//	//count2 = ft_printf("printf2 x %x\n", -1);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 p %p\n", INT_MIN);
-//	//count2 = ft_printf("printf2 p %p\n", INT_MIN);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 p %p\n", LONG_MIN);
-//	//count2 = ft_printf("printf2 p %p\n", LONG_MIN);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	//count1 = printf("printf1 p %p\n", -1);
-//	//count2 = ft_printf("printf2 p %p\n", -1);
-//	//printf("count1 %d count2 %d\n", count1, count2);
-//	//printf("-------------------------------------------\n\n\n");
-//	return (0);
-//}
+	//str = "Hello World";
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 %s\n", "Hello World");
+	count2 = ft_printf("printf2 %s\n", "Hello World");
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 %s\n", NULL);
+	count2 = ft_printf("printf2 %s\n", NULL);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 %c\n", '#');
+	count2 = ft_printf("printf2 %c\n", '#');
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 d %d\n", -123456789);
+	count2 = ft_printf("printf2 d %d\n", -123456789);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 i %i\n", 1234523456);
+	count2 = ft_printf("printf2 i %i\n", 1234523456);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 u %u\n", 987654321);
+	count2 = ft_printf("printf2 u %u\n", 987654321);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 x %x\n", 2345);
+	count2 = ft_printf("printf2 x %x\n", 2345);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 X %X\n", 1234);
+	count2 = ft_printf("printf2 X %X\n", 1234);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 pct %%%%%%\n");
+	count2 = ft_printf("printf2 pct %%%%%%\n");
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 u %u\n", INT_MAX);
+	count2 = ft_printf("printf2 u %u\n", INT_MAX);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 x %x\n", LONG_MAX);
+	count2 = ft_printf("printf2 x %x\n", LONG_MAX);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 x %x\n", LONG_MIN);
+	count2 = ft_printf("printf2 x %x\n", LONG_MIN);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 x %x\n", INT_MAX);
+	count2 = ft_printf("printf2 x %x\n", INT_MAX);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 x %x\n", -1);
+	count2 = ft_printf("printf2 x %x\n", -1);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 p %p\n", INT_MIN);
+	count2 = ft_printf("printf2 p %p\n", INT_MIN);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 p %p\n", LONG_MIN);
+	count2 = ft_printf("printf2 p %p\n", LONG_MIN);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	count1 = printf("printf1 p %p\n", -1);
+	count2 = ft_printf("printf2 p %p\n", -1);
+	printf("count1 %d count2 %d\n", count1, count2);
+	printf("-------------------------------------------\n\n\n");
+	return (0);
+}
